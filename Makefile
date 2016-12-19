@@ -7,6 +7,9 @@ help:
 dev-build:
     webpack
 
+stats:
+    webpack --json --profile > stats.json
+
 prod-build:
     NODE_ENV=production webpack
 
