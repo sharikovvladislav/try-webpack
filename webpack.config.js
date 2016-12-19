@@ -22,16 +22,19 @@ module.exports = {
   devtool: isDevelopment ? 'inline-source-map' : 'source-map',
 
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'common'
+    }),
+    new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)
-    }),
+    })/*,
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
-        drop_console: false,
-        sourceMap: true
+        drop_console: false
       }
-    })
+    })*/
   ],
 
   resolve: {
