@@ -6,11 +6,18 @@ const NODE_ENV = process.env.NODE_ENV || 'development',
   isDevelopment = NODE_ENV === 'development';
 
 module.exports = {
-  entry: './home',
-  output: {
-    filename: 'build.js',
-    library: 'home'
+  context: __dirname + '/src',
+  entry: {
+    home: './home',
+    about: './about',
   },
+  output: {
+    path: __dirname + '/public',
+    filename: '[name].js',
+    library: '[name]'
+  },
+
+
 
   devtool: isDevelopment ? 'inline-source-map' : 'source-map',
 
